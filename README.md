@@ -6,12 +6,12 @@ Containerization of four Node.js microservices from the [Microservices-Task](htt
 
 ## Architecture
 
-| Service         | Port | Endpoints                                      |
-|-----------------|------|------------------------------------------------|
-| user-service    | 3000 | `GET /health`, `GET /users`                    |
-| product-service | 3001 | `GET /health`, `GET /products`                 |
-| order-service   | 3002 | `GET /health`, `GET /orders`, `POST /orders`   |
-| gateway-service | 3003 | `GET /api/users`, `GET /api/products`, `GET /api/orders` |
+| Service         | Port | Endpoints                                                        |
+|-----------------|------|------------------------------------------------------------------|
+| user-service    | 3000 | `GET /health`, `GET /users`                                      |
+| product-service | 3001 | `GET /health`, `GET /products`                                   |
+| order-service   | 3002 | `GET /health`, `GET /orders`, `POST /orders`                     |
+| gateway-service | 3003 | `GET /api/users`, `GET /api/products`, `GET /api/orders`         |
 
 ---
 
@@ -23,6 +23,7 @@ Containerization of four Node.js microservices from the [Microservices-Task](htt
 ---
 
 ## Project Structure
+
 ---
 
 ## Setup Instructions
@@ -75,14 +76,14 @@ curl http://localhost:3003/api/orders
 ## Screenshots
 
 ### All 4 containers running in Docker Desktop
-![Docker Desktop](screenshots/Screenshot%202026-09-20%20at%207.40.35%20PM.png)
-
-### Services starting up in terminal
-![Services Starting](screenshots/Screenshot%202026-09-20%20at%207.41.09%20PM.png)
+![Docker Desktop](screenshots/docker-desktop-containers.png)
 
 ### curl responses from all endpoints
-![curl responses](screenshots/Screenshot%202026-09-20%20at%207.41.41%20PM.png)
+![curl responses](screenshots/curl-responses.png)
+
+### Services starting up
+![Services Starting](screenshots/services-starting.png)
 
 ### POST order and GET orders
-![Order created](screenshots/Screenshot%202026-09-20%20at%207.42.09%20PM.png)
+![Order created](screenshots/order-created.png)
 
