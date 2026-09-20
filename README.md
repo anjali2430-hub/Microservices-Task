@@ -6,12 +6,18 @@ Containerization of four Node.js microservices from the [Microservices-Task](htt
 
 ## Architecture
 
-| Service         | Port | Endpoints                                                        |
-|-----------------|------|------------------------------------------------------------------|
-| user-service    | 3000 | `GET /health`, `GET /users`                                      |
-| product-service | 3001 | `GET /health`, `GET /products`                                   |
-| order-service   | 3002 | `GET /health`, `GET /orders`, `POST /orders`                     |
-| gateway-service | 3003 | `GET /api/users`, `GET /api/products`, `GET /api/orders`         |
+```
+Client ──► :3003 ──► [gateway-service] ──► [user-service]    :3000
+                                       ├──► [product-service] :3001
+                                       └──► [order-service]   :3002
+```
+
+| Service         | Port | Endpoints                                                |
+|-----------------|------|----------------------------------------------------------|
+| user-service    | 3000 | `GET /health`, `GET /users`                              |
+| product-service | 3001 | `GET /health`, `GET /products`                           |
+| order-service   | 3002 | `GET /health`, `GET /orders`, `POST /orders`             |
+| gateway-service | 3003 | `GET /api/users`, `GET /api/products`, `GET /api/orders` |
 
 ---
 
@@ -24,16 +30,35 @@ Containerization of four Node.js microservices from the [Microservices-Task](htt
 
 ## Project Structure
 
+```
+├── user-service/
+│   ├── app.js
+│   ├── package.json
+│   └── Dockerfile
+├── product-service/
+│   ├── app.js
+│   ├── package.json
+│   └── Dockerfile
+├── order-service/
+│   ├── app.js
+│   ├── package.json
+│   └── Dockerfile
+├── gateway-service/
+│   ├── app.js
+│   ├── package.json
+│   └── Dockerfile
+├── docker-compose.yml
+├── screenshots/
+└── README.md
+```
+
 ---
 
 ## Setup Instructions
 
 ```bash
-# Clone the repo
 git clone https://github.com/anjali2430-hub/Microservices-Task.git
 cd Microservices-Task
-
-# Build and start all services
 docker compose up --build
 ```
 
@@ -86,4 +111,3 @@ curl http://localhost:3003/api/orders
 
 ### POST order and GET orders
 ![Order created](screenshots/order-created.png)
-
